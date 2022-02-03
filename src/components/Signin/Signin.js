@@ -19,8 +19,7 @@ class Signin extends Component{
     }
 
     onSubmitChange = () => {
-        console.log(this.state)
-        fetch('http://localhost:3000/signin',{
+        fetch('https://intense-sands-04316.herokuapp.com/signin',{
             //req method
             method: 'post',
             //body之格式

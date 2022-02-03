@@ -5,7 +5,6 @@ import Logo from './components/Logo/Logo';
 import Rank from './components/Rank/Rank';
 import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Particles from "react-tsparticles";
-import Clarifai from 'clarifai';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
@@ -93,17 +92,19 @@ class App extends Component{
   //onButtonSubmit用來針對上傳照片的button的onClick動作
   onButtonSubmit = () => {
     this.setState({imageUrl: this.state.input})
-      fetch('http://localhost:3000/imageurl',{
+    if(this.state.imageUrl){
+      //在heroku app debug完以後,前端即可將fetch位置改為heroku app的位置
+      return fetch('https://intense-sands-04316.herokuapp.com/imageurl',{
         method: 'post',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-          input: this.state.input
+          input: this.state.imageUrl
         })
       })
       .then(data => data.json())
-			.then(resp => {
+      .then(resp => {
         if(resp){
-          fetch('http://localhost:3000/image',{
+          fetch('https://intense-sands-04316.herokuapp.com/image',{
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -118,6 +119,7 @@ class App extends Component{
         }
         this.displayFaceBox(this.calculateFaceLocation(resp))
       }).catch(err => console.log("try again"))
+    }
   }
 
   //onRouteChange用來針對signin submit與navigation signout的onClick動作
@@ -133,10 +135,10 @@ class App extends Component{
 
   render(){
     const particlesInit = (main) => {
-      console.log(main);
+      // console.log(main);
     };
     const particlesLoaded = (container) => {
-      console.log(container);
+      // console.log(container);
     };
     const {isSignedIn,route,imageUrl,box} = this.state;
     //destructure

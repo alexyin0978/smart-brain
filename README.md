@@ -1,9 +1,8 @@
-# ZTM Final Project - Smart Brain App - Frontend
+# ZTM Final Project - [Smart Brain App](https://smart-brain-tw.herokuapp.com/) - Frontend
 
 This is the final project of the course "The Complete Web Developer in 2021: Zero to Mastery".
 
 This is the frontend app code repo.
-
 
 The contents and functions include:
 1.A signin page

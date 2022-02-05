@@ -27,13 +27,19 @@ click this link to go to the app : https://smart-brain-tw.herokuapp.com/
 
 * Users can either signin here or go to register page to register a new account
 
+![image](image/signin.png)
+
 ### Register page
 
 * Users can register new account here
+
+![image](image/register.png)
 
 ### Home page
 
 * The home page shows the users' name
 * The rank shows the face detect count
 * Enter jpg url in the bar, press "Detect" button, the image will show, and the app will generate the blue block on the target once detect the face
+
+![image](image/home.png)
 
